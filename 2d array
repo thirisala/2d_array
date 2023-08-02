@@ -1,0 +1,96 @@
+                               2d array assigment
+
+
+1.
+2.Richest Customer Wealth
+
+
+
+class Solution:
+    def maximumWealth(self, accounts: List[List[int]]) -> int:
+        return max ([sum(i) for i in accounts])
+
+
+
+
+
+
+3.Toeplitz matrix
+
+
+
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        for i in range(len(matrix[0])):
+            for j in range(len(matrix)):
+                if(i-j>=0 and matrix[j][i]!=matrix[0][i-j] or j-i>=0 and matrix[j][i]!=matrix[j-i][0]):
+                    return False
+        return True
+
+
+
+
+4.Matrix Diagonal sum
+
+
+
+
+
+int diagonalSum(int** mat, int matSize, int* matColSize){
+    int tot=0;
+    for(int i=0;i<matSize;i++){
+        tot+=mat[i][i];
+        tot+=mat[i][matSize-i-1];
+    }
+    return matSize%2==0 ? tot:tot-mat[matSize/2][matSize/2];
+
+
+}
+
+
+
+
+6.Transpose matrix
+
+
+
+
+class Solution {
+    public int[][] transpose(int[][] matrix) {
+        int[][] ans = new int[matrix[0].length][matrix.length];
+        for(int i=0; i < matrix.length; i++){
+            for (int j = 0; j < matrix[0].length; j++){
+                ans[j][i] = matrix[i][j];
+            } 
+        }
+        return ans;
+    }
+}
+
+
+7.set matrix zero
+
+
+
+
+class Solution(object):
+    def setZeroes(self, matrix):
+        col=[]
+        row = []
+
+        for a in range(len(matrix)):
+            if 0 in matrix[a]:
+                row.append(a)
+            for b in range(len(matrix[0])):
+                if matrix[a][b]==0:
+                    col.append(b)
+
+        for a in range(len(matrix)):
+            for b in range(len(matrix[0])):
+                if b in col or a in row:
+                    matrix[a][b]=0
+
+        return(matrix)
+
+
+
